@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIOGIA - Menú Digital | Cafetería & Cocina Casera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f0c0a;
+      --bg-card: #181310;
+      --bg-card-hover: #221a15;
+      --coffee-dark: #22140d;
+      --coffee-accent: #3d2318;
+      --gold-primary: #d97706;
+      --gold-light: #fbbf24;
+      --gold-hover: #f59e0b;
+      --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+      --text-main: #f5f2eb;
+      --text-muted: #a8a29e;
+      --text-amber: #fde68a;
+      --border-color: rgba(217, 119, 6, 0.25);
+      --border-light: rgba(255, 255, 255, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #080605;
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      background-image: radial-gradient(circle at 50% 10%, #26160e 0%, #080605 80%);
+      background-attachment: fixed;
+    }
+
+    /* Smartphone Frame Container for Desktop */
+    .app-viewport {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      background-color: var(--bg-dark);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(217, 119, 6, 0.12);
+    }
+
+    @media (min-width: 641px) {
+      body {
+        padding: 30px 10px;
+      }
+      .app-viewport {
+        border-radius: 40px;
+        border: 3.5px solid #33231a;
+        min-height: calc(100vh - 60px);
+        overflow: hidden;
+      }
+      .phone-notch {
+        width: 140px;
+        height: 20px;
+        background: #1b130e;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .notch-camera {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #0d0907;
+      }
+      .notch-speaker {
+        width: 42px;
+        height: 3.5px;
+        border-radius: 2px;
+        background: #2b1f18;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .phone-notch {
+        display: none;
+      }
+    }
+
+    /* Header & Branding */
+    .header-hero {
+      position: relative;
+      background: linear-gradient(180deg, #241710 0%, var(--bg-dark) 100%);
+      padding: 36px 20px 20px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand-logo-container {
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .brand-logo {
+      height: 90px;
+      max-width: 260px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 16px rgba(245, 158, 11, 0.3));
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .status-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .badge-pill {
+      font-size: 10.5px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(45, 27, 18, 0.8);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      color: var(--text-amber);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+
+    .badge-live {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      display: inline-block;
+      box-shadow: 0 0 6px #10b981;
+    }
+
+    /* Combo Estrella Highlight Banner */
+    .combo-section {
+      padding: 16px 16px 8px 16px;
+    }
+
+    .combo-card {
+      position: relative;
+      background: linear-gradient(135deg, #361f14 0%, #1c110b 100%);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 20px rgba(217, 119, 6, 0.2);
+      overflow: hidden;
+    }
+
+    .combo-card::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .combo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .combo-tag {
+      background: var(--gold-gradient);
+      color: #0f0c0a;
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2.5px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .combo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .combo-desc {
+      font-size: 12px;
+      color: #e5ded4;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .combo-price-box {
+      text-align: right;
+      padding-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .old-price {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .main-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .currency-tag {
+      font-size: 9.5px;
+      color: var(--text-amber);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .combo-fillings {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(217, 119, 6, 0.35);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .filling-chip {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: var(--text-amber);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Sticky Navigation */
+    .nav-tabs {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(15, 12, 10, 0.94);
+      backdrop-filter: blur(10px);
+      border-y: 1px solid var(--border-color);
+      padding: 10px 14px;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      white-space: nowrap;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 13px;
+      border-radius: 20px;
+      background: #1e1713;
+      color: #d6cfc7;
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-pill.active, .nav-pill:hover {
+      background: var(--gold-primary);
+      color: #0f0c0a;
+      border-color: var(--gold-light);
+    }
+
+    /* Main Content Container */
+    .content-area {
+      padding: 16px 16px 90px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .section-header {
+      margin-bottom: 12px;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-light);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .section-subtitle {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Notice box */
+    .notice-box {
+      background: rgba(45, 27, 18, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 11px 13px;
+      margin-bottom: 14px;
+      font-size: 11.5px;
+      color: #e5ded4;
+      display: flex;
+      gap: 9px;
+      line-height: 1.4;
+    }
+
+    .notice-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      color: var(--gold-light);
+    }
+
+    /* Food Cards */
+    .dish-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 14px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .dish-card:hover {
+      border-color: var(--border-color);
+    }
+
+    .dish-image-wrapper {
+      position: relative;
+      height: 160px;
+      width: 100%;
+      background: #2a1c15;
+      overflow: hidden;
+    }
+
+    .dish-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .dish-card:hover .dish-img {
+      transform: scale(1.03);
+    }
+
+    .day-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(15, 12, 10, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    .tag-fresh {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(16, 185, 129, 0.9);
+      color: #064e3b;
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .dish-body {
+      padding: 13px 14px;
+    }
+
+    .dish-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .dish-name {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .dish-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+
+    .dish-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: 1.45;
+    }
+
+    /* Menu Base Grid List */
+    .menu-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+
+    .menu-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      gap: 12px;
+    }
+
+    .menu-item-row:last-child {
+      border-bottom: none;
+      padding-bottom: 2px;
+    }
+
+    .menu-item-info {
+      flex: 1;
+    }
+
+    .menu-item-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #f3eee6;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .item-star {
+      font-size: 10px;
+      color: var(--gold-light);
+    }
+
+    .menu-item-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.35;
+    }
+
+    .menu-item-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+
+    /* Coworking Card */
+    .coworking-card {
+      background: linear-gradient(135deg, #231610 0%, #150f0c 100%);
+      border: 1.5px solid rgba(217, 119, 6, 0.35);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .coworking-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .coworking-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .coworking-features {
+      list-style: none;
+      font-size: 12px;
+      color: #dcd4c9;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .coworking-features li {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .coworking-features li span {
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    /* Fixed Floating WhatsApp Bar */
+    .floating-bar {
+      position: sticky;
+      bottom: 0;
+      z-index: 50;
+      background: rgba(15, 12, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .wa-button {
+      flex: 1;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+      padding: 11px 16px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+      transition: transform 0.2s ease;
+    }
+
+    .wa-button:active {
+      transform: scale(0.98);
+    }
+
+    .wa-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .footer-credits {
+      text-align: center;
+      font-size: 10.5px;
+      color: #78716c;
+      padding: 18px 0 6px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-viewport">
+    <!-- Desktop Notch Simulation -->
+    <div class="phone-notch">
+      <div class="notch-speaker"></div>
+      <div class="notch-camera"></div>
+    </div>
+
+    <!-- Header / Brand Hero -->
+    <header class="header-hero">
+      <div class="brand-logo-container">
+        <img src="img/logo_riogia.svg" alt="RIOGIA Exquisites Absoluta" class="brand-logo">
+      </div>
+      <p class="brand-tagline">Cafetería &bull; Cocina Casera</p>
+      
+      <div class="status-badges">
+        <span class="badge-pill badge-live"><span class="pulse-dot"></span> Abierto Hoy</span>
+        <span class="badge-pill">📶 Wi-Fi Alta Velocidad</span>
+        <span class="badge-pill">☕ Refill Café</span>
+        <span class="badge-pill">📖 2° Piso</span>
+      </div>
+    </header>
+
+    <!-- Combo de la Casa ($50 Refill) -->
+    <section class="combo-section">
+      <div class="combo-card">
+        <div class="combo-header">
+          <div>
+            <span class="combo-tag">Combo Estrella de la Casa</span>
+            <h2 class="combo-title">Dulzura & Refill</h2>
+          </div>
+          <div class="combo-price-box">
+            <div class="old-price">$65</div>
+            <div class="main-price">$50</div>
+            <div class="currency-tag">Pesos</div>
+          </div>
+        </div>
+        <p class="combo-desc">
+          Café Americano con <strong>Refill incluido</strong> + 1 Dulzura rellena artesanal o Rebanada de Panqué de Chocolate casero.
+        </p>
+        <div class="combo-fillings">
+          <span class="filling-chip">Rellenos:</span>
+          <span class="filling-chip">Cajeta</span>
+          <span class="filling-chip">Chocoavellana</span>
+          <span class="filling-chip">Queso Zarzamora</span>
+          <span class="filling-chip">Lechera</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación de Categorías Rápida -->
+    <nav class="nav-tabs">
+      <a href="#menu-diario" class="nav-pill active">📅 Platillos del Día</a>
+      <a href="#fin-semana" class="nav-pill">🍲 Fin de Semana</a>
+      <a href="#cafeteria" class="nav-pill">☕ Café & Bebidas</a>
+      <a href="#comida-casera" class="nav-pill">🍳 Desayunos & Comida</a>
+      <a href="#reposteria" class="nav-pill">🍪 Dulzuras & Galletas</a>
+      <a href="#coworking" class="nav-pill">💻 2° Piso Coworking</a>
+    </nav>
+
+    <!-- Contenido Principal del Menú -->
+    <main class="content-area">
+
+      <!-- SECCIÓN: PLATILLOS DEL DÍA (ROTATIVO CON DÍAS FIJOS) -->
+      <section id="menu-diario">
+        <div class="section-header">
+          <span class="section-eyebrow">Días Fijos &bull; Cero Merma</span>
+          <h3 class="section-title">Especialidades del Día</h3>
+          <p class="section-subtitle">Preparados al momento &bull; Lunes a Viernes</p>
+        </div>
+
+        <div class="notice-box">
+          <div class="notice-icon">💡</div>
+          <div>
+            <strong>Menú rotativo semanal:</strong> Para garantizar la máxima frescura de nuestros ingredientes, cada día de la semana cocinamos una especialidad casera fija. ¡Pregúntanos por la porción de hoy o reserva tu pedido!
+          </div>
+        </div>
+
+        <!-- LUNES: Molletes -->
+        <article class="dish-card">
+          <div class="dish-image-wrapper">
+            <img src="img/barra.jpg" alt="Molletes Caseros" class="dish-img">
+            <span class="day-badge">Lunes</span>
+            <span class="tag-fresh">Horneados</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-title-row">
+              <h4 class="dish-name">Molletes Caseros Gratinados</h4>
+              <span class="dish-price">$55 - $70</span>
+            </div>
+            <p class="dish-desc">
+              Bolillo crujiente untado con frijoles refritos caseros y abundante queso gouda gratinado al horno. Acompañados con pico de gallo fresco.
+            </p>
+            <div style="margin-top: 8px; font-size: 11px; color: var(--gold-light);">
+              Tradicionales: <strong>$55</strong> | Con Jamón, Chorizo o Tocino: <strong>$70</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- MARTES: Chilaquiles -->
+        <article class="dish-card">
+          <div class="dish-image-wrapper">
+            <img src="img/chilaquiles.jpg" alt="Chilaquiles Verdes o Rojos" class="dish-img">
+            <span class="day-badge">Martes</span>
+            <span class="tag-fresh">Favorito</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-title-row">
+              <h4 class="dish-name">Chilaquiles de la Casa</h4>
+              <span class="dish-price">$65 - $80</span>
+            </div>
+            <p class="dish-desc">
+              Totopos crujientes de maíz bañados en salsa verde esmeralda o roja de chile de árbol, queso fresco de aro, crema ácida y rebanadas de aguacate.
+            </p>
+            <div style="margin-top: 8px; font-size: 11px; color: var(--gold-light);">
+              Sencillos con queso y crema: <strong>$65</strong> | Con Pollo deshebrado o Huevo: <strong>$80</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- MIÉRCOLES: Ensalada Fitness -->
+        <article class="dish-card">
+          <div class="dish-image-wrapper">
+            <img src="img/ensalada.jpg" alt="Barquitas de Lechuga Fitness" class="dish-img">
+            <span class="day-badge">Miércoles</span>
+            <span class="tag-fresh">Saludable</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-title-row">
+              <h4 class="dish-name">Barquitas de Lechuga Fitness</h4>
+              <span class="dish-price">$70</span>
+            </div>
+            <p class="dish-desc">
+              Ensalada fresca y ligera en hojas de lechuga romana crujiente con pechuga de pollo asada en tiras, huevo cocido, abanico de aguacate, jitomates cherry y aderezo especial de la casa.
+            </p>
+          </div>
+        </article>
+
+        <!-- JUEVES: Enchiladas Suizas -->
+        <article class="dish-card">
+          <div class="dish-image-wrapper">
+            <img src="img/enchiladas.jpg" alt="Enchiladas Suizas Gratinadas" class="dish-img">
+            <span class="day-badge">Jueves</span>
+            <span class="tag-fresh">Al Horno</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-title-row">
+              <h4 class="dish-name">Enchiladas Suizas Gratinadas</h4>
+              <span class="dish-price">$75</span>
+            </div>
+            <p class="dish-desc">
+              Orden de tres tortillas rellenas de pechuga de pollo deshebrada, bañadas en nuestra salsa verde suiza cremosa de tomatillo y gratinadas al horno con queso gouda.
+            </p>
+          </div>
+        </article>
+
+        <!-- VIERNES: Enmoladas Tradicionales -->
+        <article class="dish-card">
+          <div class="dish-image-wrapper">
+            <img src="img/enmoladas.jpg" alt="Enmoladas Tradicionales" class="dish-img">
+            <span class="day-badge">Viernes</span>
+            <span class="tag-fresh">Receta Casera</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-title-row">
+              <h4 class="dish-name">Enmoladas Tradicionales / Burritos</h4>
+              <span class="dish-price">$75</span>
+            </div>
+            <p class="dish-desc">
+              Tres enmoladas de pollo con mole casero tradicional poblano con toque de cacao, coronadas con queso fresco, crema y ajonjolí tostado / Opción de burritos norteños.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- SECCIÓN: FIN DE SEMANA (CAZUELA TRADICIONAL) -->
+      <section id="fin-semana">
+        <div class="section-header">
+          <span class="section-eyebrow">Sábados & Domingos</span>
+          <h3 class="section-title">Menú de Cazuela Tradicional</h3>
+          <p class="section-subtitle">Sabor de hogar para compartir en familia</p>
+        </div>
+
+        <article class="dish-card">
+          <div class="dish-image-wrapper">
+            <img src="img/pizarron.jpg" alt="Cazuelas de Fin de Semana" class="dish-img">
+            <span class="day-badge">Fin de Semana</span>
+            <span class="tag-fresh">Cazuela</span>
+          </div>
+          <div class="dish-body">
+            <div class="menu-item-row">
+              <div class="menu-item-info">
+                <div class="menu-item-title">Pozole Casero Tradicional</div>
+                <div class="menu-item-desc">Plato hondo de maíz cacahuazintle con carne deshebrada, lechuga, rábanos, orégano y tostadas.</div>
+              </div>
+              <div class="menu-item-price">$85</div>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-info">
+                <div class="menu-item-title">Cochinita Pibil al Horno</div>
+                <div class="menu-item-desc">Carne de cerdo marinada en achiote y naranja agria, con cebollita morada encurtida y habanero.</div>
+              </div>
+              <div class="menu-item-price">$80</div>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-info">
+                <div class="menu-item-title">Pancita de Res de la Casa</div>
+                <div class="menu-item-desc">Caldo reconfortante de pancita bien sazonada con chile guajillo, epazote, cebolla y orégano.</div>
+              </div>
+              <div class="menu-item-price">$90</div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- SECCIÓN: MENÚ BASE (CAFETERÍA & BEBIDAS) -->
+      <section id="cafeteria">
+        <div class="section-header">
+          <span class="section-eyebrow">Lo Que Siempre Hay</span>
+          <h3 class="section-title">Cafetería & Bebidas</h3>
+          <p class="section-subtitle">Granos selectos y bebidas preparadas al momento</p>
+        </div>
+
+        <div class="menu-group">
+          <!-- Americano con Refill -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">
+                Café Americano de Altura
+                <span class="item-star">★ Popular</span>
+              </div>
+              <div class="menu-item-desc">Taza caliente clásica. <em>Refill incluido en el Combo Dulzura por $50.</em></div>
+            </div>
+            <div class="menu-item-price">$30</div>
+          </div>
+
+          <!-- Café de Olla -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Café de Olla Tradicional</div>
+              <div class="menu-item-desc">Hervido a fuego lento con piloncillo de caña y canela en rama.</div>
+            </div>
+            <div class="menu-item-price">$30</div>
+          </div>
+
+          <!-- Capuchino -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Capuchino Cremoso</div>
+              <div class="menu-item-desc">Espresso con leche vaporizada, espuma densa y toque de canela o cacao.</div>
+            </div>
+            <div class="menu-item-price">$45</div>
+          </div>
+
+          <!-- Latte -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Café Latte Clásico</div>
+              <div class="menu-item-desc">Suave combinación de espresso y abundante leche entera o deslactosada.</div>
+            </div>
+            <div class="menu-item-price">$45</div>
+          </div>
+
+          <!-- Espresso -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Espresso Sencillo / Doble</div>
+              <div class="menu-item-desc">Extracción pura, intensa y con crema dorada.</div>
+            </div>
+            <div class="menu-item-price">$25 / $35</div>
+          </div>
+
+          <!-- Frappés -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">
+                Frappés Artesanales
+                <span class="item-star">★ Refrescante</span>
+              </div>
+              <div class="menu-item-desc">Sabores: Moka, Caramelo, Vainilla francesa o Café tradicional con crema batida.</div>
+            </div>
+            <div class="menu-item-price">$50</div>
+          </div>
+
+          <!-- Licuados -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Licuados Naturales</div>
+              <div class="menu-item-desc">Preparados con fruta fresca: Plátano, Fresa o Chocomilk con leche entera/light.</div>
+            </div>
+            <div class="menu-item-price">$35</div>
+          </div>
+
+          <!-- Malteadas -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Malteadas Cremosas</div>
+              <div class="menu-item-desc">Helado batido espeso. Sabores clásicos: Chocolate, Vainilla o Fresa.</div>
+            </div>
+            <div class="menu-item-price">$45</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: MENÚ BASE (DESAYUNOS & COMIDA CASERA) -->
+      <section id="comida-casera">
+        <div class="section-header">
+          <span class="section-eyebrow">Disponible Todo el Día</span>
+          <h3 class="section-title">Cocina Casera & Desayunos</h3>
+          <p class="section-subtitle">Preparados al instante con sazón de hogar</p>
+        </div>
+
+        <div class="menu-group">
+          <!-- Baguette -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">
+                Baguette de la Casa
+                <span class="item-star">★ Recomendado</span>
+              </div>
+              <div class="menu-item-desc">Pan baguette artesanal con jamón de pavo, queso gouda derretido, lechuga y aderezo especial.</div>
+            </div>
+            <div class="menu-item-price">$55</div>
+          </div>
+
+          <!-- Sándwich -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Sándwich Clásico Tostado</div>
+              <div class="menu-item-desc">Pan blanco o integral a la mantequilla con jamón, doble queso (gouda y amarillo) y jitomate.</div>
+            </div>
+            <div class="menu-item-price">$40</div>
+          </div>
+
+          <!-- Huevito al gusto -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Huevito al Gusto</div>
+              <div class="menu-item-desc">Dos huevos preparados a la mexicana, con jamón o con salchicha. Servidos con frijolitos y totopos.</div>
+            </div>
+            <div class="menu-item-price">$55</div>
+          </div>
+
+          <!-- Hot Cakes -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Hot Cakes Esponjosos (3 pzas)</div>
+              <div class="menu-item-desc">Torre de 3 piezas calientitas con mantequilla, miel de maple y mermelada de fresa.</div>
+            </div>
+            <div class="menu-item-price">$50</div>
+          </div>
+
+          <!-- Crepas -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Crepas Dulces Caseras</div>
+              <div class="menu-item-desc">Relleno a elegir: Nutella con plátano, Cajeta o Queso crema con zarzamora.</div>
+            </div>
+            <div class="menu-item-price">$45</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: DULZURAS & BARRA DE REPOSTERÍA -->
+      <section id="reposteria">
+        <div class="section-header">
+          <span class="section-eyebrow">El Acompañamiento Perfecto</span>
+          <h3 class="section-title">Dulzuras & Repostería</h3>
+          <p class="section-subtitle">Para consentirte junto a tu café favorito</p>
+        </div>
+
+        <div class="menu-group">
+          <!-- Dulzuras rellenas -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">
+                Dulzuras Rellenas de la Casa
+                <span class="item-star">★ Especialidad</span>
+              </div>
+              <div class="menu-item-desc">Pan dulce esponjoso relleno al gusto: Cajeta suave, Chocoavellana, Queso Zarzamora o Lechera.</div>
+            </div>
+            <div class="menu-item-price">$25 c/u</div>
+          </div>
+
+          <!-- Panqué de chocolate -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Panqué de Chocolate Casero</div>
+              <div class="menu-item-desc">Rebanada de panqué húmedo de cacao con chispas de chocolate.</div>
+            </div>
+            <div class="menu-item-price">$25</div>
+          </div>
+
+          <!-- Galletas de mantequilla artesanales -->
+          <div class="menu-item-row" style="background: rgba(245, 158, 11, 0.05); margin: 6px -8px; padding: 10px 8px; border-radius: 8px; border: 1px dashed rgba(245, 158, 11, 0.3);">
+            <div class="menu-item-info">
+              <div class="menu-item-title" style="color: var(--gold-light);">
+                Galletas de Mantequilla Artesanales
+                <span class="item-star">★ Receta Europea</span>
+              </div>
+              <div class="menu-item-desc">Elaboradas 100% con mantequilla pura por nuestra repostería aliada. Embolsadas individualmente para máxima higiene y frescura.</div>
+            </div>
+            <div class="menu-item-price">$20 c/u</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: COWORKING & 2° PISO -->
+      <section id="coworking">
+        <div class="section-header">
+          <span class="section-eyebrow">Espacio Tranquilo & Trabajo</span>
+          <h3 class="section-title">Segundo Piso & Coworking</h3>
+          <p class="section-subtitle">El lugar ideal para concentrarte, leer y trabajar</p>
+        </div>
+
+        <div class="coworking-card">
+          <div class="coworking-header">
+            <div>
+              <span class="combo-tag">Paquete Especial</span>
+              <div class="coworking-title">Pase Café & Trabajo</div>
+            </div>
+            <div class="combo-price-box">
+              <div class="main-price">$60</div>
+              <div class="currency-tag">2 Horas</div>
+            </div>
+          </div>
+          <p style="font-size: 12px; color: #ddd5cc; line-height: 1.4;">
+            Disfruta de la tranquilidad de nuestra planta alta con todo lo que necesitas para tu jornada:
+          </p>
+          <ul class="coworking-features">
+            <li><span>✓</span> Café Americano con Refill durante tu estancia (2 horas).</li>
+            <li><span>✓</span> Conexión eléctrica garantizada junto a tu mesa.</li>
+            <li><span>✓</span> Red Wi-Fi de alta velocidad para videollamadas o estudio.</li>
+            <li><span>✓</span> Ambiente libre de ruido y distracciones.</li>
+          </ul>
+
+          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 11px; color: var(--text-amber);">
+            📚 <strong>Club de Lectura los Fines de Semana:</strong> Pregúntanos por las fechas de convivencia y círculos de lectura en nuestro segundo piso.
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Info -->
+      <div class="footer-credits">
+        <p><strong>Cafetería RIOGIA &bull; Exquisites Absoluta</strong></p>
+        <p style="margin-top: 4px;">Atención y Pedidos: WhatsApp 712 445 1354</p>
+        <p style="margin-top: 2px; color: #57534e;">Plataforma Digital creada en colaboración con Impulso Digital</p>
+      </div>
+
+    </main>
+
+    <!-- Barra Flotante de WhatsApp Sticky -->
+    <div class="floating-bar">
+      <a href="https://wa.me/527124451354?text=Hola%20Cafeter%C3%ADa%20RIOGIA,%20quisiera%20pedir%20informaci%C3%B3n%20sobre%20el%20platillo%20del%20d%C3%ADa%20y%20hacer%20un%20pedido." target="_blank" class="wa-button">
+        <svg class="wa-icon" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Pedir por WhatsApp (712 445 1354)</span>
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
