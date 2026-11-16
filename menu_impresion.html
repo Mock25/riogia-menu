@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú RIOGIA - Físico Impreso</title>
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 8mm 9mm 8mm 9mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e1915;
+      background: #ffffff;
+      line-height: 1.25;
+      font-size: 9.5px;
+    }
+
+    .menu-sheet {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* HEADER */
+    .header {
+      border-bottom: 2px solid #8c4a1e;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .brand-col {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-family: Georgia, "Playfair Display", serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #632e0e;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #8c4a1e;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .brand-badge {
+      display: inline-block;
+      font-size: 8.5px;
+      background: #fdf5ec;
+      border: 1px solid #d99b6c;
+      color: #7a350c;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: 10px;
+    }
+
+    .contact-col {
+      text-align: right;
+      font-size: 8.5px;
+      color: #4a3e36;
+    }
+
+    .contact-phone {
+      font-size: 11px;
+      font-weight: 800;
+      color: #632e0e;
+    }
+
+    /* GRID COLUMNS */
+    .columns-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* SECTION STYLES */
+    .section-block {
+      border: 1px solid #e8dbd1;
+      border-radius: 6px;
+      padding: 6px 8px;
+      background: #faf7f4;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: #632e0e;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 1.5px solid #d99b6c;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-subtitle-tag {
+      font-family: -apple-system, sans-serif;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: #8c4a1e;
+      letter-spacing: 0.4px;
+    }
+
+    /* MENU ITEMS */
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      padding-bottom: 3px;
+      border-bottom: 1px dotted #e3d5c9;
+    }
+
+    .item-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .item-left {
+      flex: 1;
+      padding-right: 8px;
+    }
+
+    .item-name {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #2b221b;
+    }
+
+    .item-desc {
+      font-size: 8px;
+      color: #5c4e43;
+      line-height: 1.2;
+      margin-top: 1px;
+    }
+
+    .item-desc strong {
+      color: #632e0e;
+    }
+
+    .item-price {
+      font-size: 10px;
+      font-weight: 800;
+      color: #7a350c;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* LOWER FULL-WIDTH / DUAL SPECIALTIES SECTION */
+    .specials-container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 10px;
+      border-top: 1.5px solid #8c4a1e;
+      padding-top: 6px;
+      margin-top: 2px;
+    }
+
+    .day-badge-inline {
+      background: #8c4a1e;
+      color: #ffffff;
+      font-size: 7.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-right: 4px;
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid #d9c5b4;
+      padding-top: 4px;
+      margin-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.8px;
+      color: #6e5e52;
+    }
+
+    .footer strong {
+      color: #632e0e;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-sheet">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand-col">
+        <div>
+          <div class="brand-title">RIOGIA</div>
+          <div class="brand-sub">Cafetería &bull; Cocina Casera</div>
+        </div>
+        <div class="brand-badge">
+          ☕ Café 100% Original de La Parroquia de Veracruz
+        </div>
+      </div>
+      <div class="contact-col">
+        <div>Atención & Pedidos WhatsApp</div>
+        <div class="contact-phone">📲 712 445 1354</div>
+      </div>
+    </header>
+
+    <!-- 2 MAIN COLUMNS -->
+    <div class="columns-container">
+      
+      <!-- COLUMNA 1: CAFETERÍA Y BEBIDAS -->
+      <div class="col">
+        <div class="section-block">
+          <div class="section-title">
+            <span>Cafetería & Bebidas</span>
+            <span class="section-subtitle-tag">Granos Selectos</span>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Café Americano de Altura</div>
+              <div class="item-desc">Taza clásica caliente <strong>$30</strong> | Tamaño grande para llevar <strong>$48</strong></div>
+            </div>
+            <div class="item-price">$30 / $48</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Capuchino Cremoso</div>
+              <div class="item-desc">Clásico <strong>$48</strong> | Grande p/llevar <strong>$52</strong> | Con Hershey's o Cajeta <strong>$52</strong> | Vainilla o Moka <strong>$55</strong></div>
+            </div>
+            <div class="item-price">$48 - $55</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Café Latte</div>
+              <div class="item-desc">Leche entera <strong>$48</strong> | Deslactosada <strong>$52</strong> | Latte Frío <strong>$55</strong></div>
+            </div>
+            <div class="item-price">$48 - $55</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Chocolate Especial</div>
+              <div class="item-desc">Espumoso y reconfortante. A elegir caliente o frío.</div>
+            </div>
+            <div class="item-price">$52</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Espresso Puro</div>
+              <div class="item-desc">Extracción intensa: Sencillo <strong>$30</strong> | Doble <strong>$40</strong></div>
+            </div>
+            <div class="item-price">$30 / $40</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Té Caliente o Frío</div>
+              <div class="item-desc">Variedad de infusiones selectas preparadas al momento.</div>
+            </div>
+            <div class="item-price">$35</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Bebidas Heladas</div>
+              <div class="item-desc">Café Helado con hielo frappé <strong>$40</strong> | Chocolate Helado <strong>$40</strong></div>
+            </div>
+            <div class="item-price">$40</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Frappés Artesanales</div>
+              <div class="item-desc">Moka <strong>$62</strong> | Chocolate <strong>$65</strong> | Hershey's, Cajeta o Nutella <strong>$70</strong> | Oreo <strong>$75</strong> | Queso c/ Zarzamora <strong>$75</strong></div>
+            </div>
+            <div class="item-price">$62 - $75</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Licuados Naturales</div>
+              <div class="item-desc">Fruta fresca: Plátano, Fresa o Chocomilk. Con Leche Entera <strong>$38</strong> | Deslactosada <strong>$40</strong></div>
+            </div>
+            <div class="item-price">$38 / $40</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Malteadas Cremosas</div>
+              <div class="item-desc">Clásicas (Fresa, Vainilla, Chocolate) <strong>$60</strong> | Chocoavellana o Cajeta <strong>$65</strong> | Queso c/ Zarzamora <strong>$68</strong></div>
+            </div>
+            <div class="item-price">$60 - $68</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLUMNA 2: COCINA CASERA & REPOSTERÍA -->
+      <div class="col">
+        
+        <!-- COCINA CASERA & DESAYUNOS -->
+        <div class="section-block">
+          <div class="section-title">
+            <span>Cocina Casera & Desayunos</span>
+            <span class="section-subtitle-tag">Al Momento</span>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Huevitos al Gusto</div>
+              <div class="item-desc">
+                &bull; A la Mexicana (con frijoles refritos, totopos y aguacate): <strong>$50</strong><br>
+                &bull; Rancheros (estrellados sobre tortilla con jamón y salsa): <strong>$55</strong><br>
+                &bull; Con Jamón o Salchicha y queso fundido: <strong>$55</strong>
+              </div>
+            </div>
+            <div class="item-price">$50 / $55</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Baguette de la Casa</div>
+              <div class="item-desc">Pan baguette artesanal con jamón de pavo, queso gouda derretido, lechuga fresca y aderezo especial de la casa.</div>
+            </div>
+            <div class="item-price">$65</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Sándwich Clásico Tostado</div>
+              <div class="item-desc">A la mantequilla con doble queso: Clásico de Jamón <strong>$48</strong> | Pechuga de Pollo <strong>$55</strong></div>
+            </div>
+            <div class="item-price">$48 / $55</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Hot Cakes Esponjosos (3 pzas)</div>
+              <div class="item-desc">Torre de 3 piezas calientitas con mantequilla pura, miel de maple y mermelada de fresa.</div>
+            </div>
+            <div class="item-price">$50</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Crepas Dulces Caseras</div>
+              <div class="item-desc">Relleno a elegir: Nutella con plátano, Cajeta suave o Queso crema con zarzamora.</div>
+            </div>
+            <div class="item-price">$60</div>
+          </div>
+        </div>
+
+        <!-- REPOSTERÍA -->
+        <div class="section-block">
+          <div class="section-title">
+            <span>Dulzuras & Repostería</span>
+            <span class="section-subtitle-tag">Hecho en Casa</span>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Dulzuras Rellenas de la Casa</div>
+              <div class="item-desc">Pan dulce esponjoso horneado. Rellenos: Fresa, Nutella, Cajeta suave o Lechera.</div>
+            </div>
+            <div class="item-price">$15 c/u</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Galletas de Mantequilla Artesanales</div>
+              <div class="item-desc">Receta europea 100% mantequilla pura artesanal. Paquete cerrado de 4 piezas.</div>
+            </div>
+            <div class="item-price">$30 pqt (4 pzas)</div>
+          </div>
+
+          <div class="item-row">
+            <div class="item-left">
+              <div class="item-name">Pan Dulce Tradicional</div>
+              <div class="item-desc">Pieza para café <strong>$15</strong> | Pan dulce especial <strong>$18</strong></div>
+            </div>
+            <div class="item-price">$15 / $18</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN INFERIOR: PLATILLOS DEL DÍA Y FIN DE SEMANA -->
+    <div class="specials-container">
+      
+      <!-- LUNES A VIERNES -->
+      <div class="section-block">
+        <div class="section-title">
+          <span>Especialidades del Día</span>
+          <span class="section-subtitle-tag">Lunes a Viernes &bull; Frescura Garantizada</span>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name"><span class="day-badge-inline">Lunes</span> Molletes Caseros Gratinados</div>
+            <div class="item-desc">Bolillo con frijoles y queso gouda al horno. Tradicionales <strong>$55</strong> | Con Jamón, Chorizo, Tocino o Pollo <strong>$70</strong></div>
+          </div>
+          <div class="item-price">$55 / $70</div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name"><span class="day-badge-inline">Martes</span> Chilaquiles de la Casa (Verdes o Rojos)</div>
+            <div class="item-desc">Totopos con crema, queso y aguacate. Sencillos <strong>$65</strong> | Pollo o Huevo <strong>$80</strong> | Tiras de Bistec <strong>$90</strong></div>
+          </div>
+          <div class="item-price">$65 - $90</div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name"><span class="day-badge-inline">Miércoles</span> Barquitas de Lechuga Fitness</div>
+            <div class="item-desc">Ensalada fresca en hojas de lechuga romana con pechuga asada, huevo cocido, aguacate y aderezo.</div>
+          </div>
+          <div class="item-price">$75</div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name"><span class="day-badge-inline">Jueves</span> Enchiladas Suizas Gratinadas</div>
+            <div class="item-desc">Orden de 4 piezas rellenas de pollo deshebrado en salsa verde suiza y gratinadas al horno con queso gouda.</div>
+          </div>
+          <div class="item-price">$80</div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name"><span class="day-badge-inline">Viernes</span> Enmoladas de Pollo / Burritos Norteños</div>
+            <div class="item-desc">4 Enmoladas con mole poblano casero <strong>$80</strong> | Burrito gigante (Pastor o Pollo) con papas en gajos <strong>$80</strong></div>
+          </div>
+          <div class="item-price">$80</div>
+        </div>
+      </div>
+
+      <!-- FIN DE SEMANA -->
+      <div class="section-block">
+        <div class="section-title">
+          <span>Fin de Semana</span>
+          <span class="section-subtitle-tag">Sábados & Domingos</span>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name">Pozole Casero Tradicional</div>
+            <div class="item-desc">Cacahuazintle con carne deshebrada, orégano, rábanos y tostadas doradas.</div>
+          </div>
+          <div class="item-price">$85</div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name">Cochinita Pibil al Horno</div>
+            <div class="item-desc">Orden de 4 tacos con cebollita morada y habanero <strong>$80</strong> <em>(Pregunta por kilo p/llevar)</em>.</div>
+          </div>
+          <div class="item-price">$80</div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-left">
+            <div class="item-name">Pancita de Res de la Casa</div>
+            <div class="item-desc">Caldo bien sazonado con guajillo y epazote: Plato Grande <strong>$90</strong> | 1 Litro p/llevar <strong>$110</strong></div>
+          </div>
+          <div class="item-price">$90 / $110</div>
+        </div>
+
+        <div style="margin-top: 6px; padding: 4px 6px; background: #f3ece4; border-radius: 4px; font-size: 7.5px; color: #632e0e;">
+          💻 <strong>Segundo Piso:</strong> Espacio de lectura y coworking ($40/hora). Refill de Americano: $30.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>
+        <strong>Cafetería RIOGIA &bull; Exquisites Absoluta</strong> &bull; Todos nuestros alimentos se preparan al momento con ingredientes frescos.
+      </div>
+      <div>
+        Precios en M.N. &bull; Pedidos y Reservas: <strong>712 445 1354</strong>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
