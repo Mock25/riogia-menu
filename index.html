@@ -638,6 +638,11 @@
         <span class="badge-pill">☕ Refill Café</span>
         <span class="badge-pill">📖 2° Piso</span>
       </div>
+      <div style="margin-top: 10px;">
+        <span style="font-size: 11px; background: rgba(217, 119, 6, 0.2); color: var(--gold-light); border: 1px solid rgba(217, 119, 6, 0.4); padding: 4px 12px; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+          🍳 Desayunos: Huevos al Gusto o Menú del Día
+        </span>
+      </div>
     </header>
 
     <!-- Combo de la Casa ($50 Refill) -->
@@ -655,7 +660,7 @@
           </div>
         </div>
         <p class="combo-desc">
-          Café Americano con <strong>Refill incluido</strong> + 1 Dulzura rellena artesanal o Rebanada de Panqué de Chocolate casero.
+          Café Americano con <strong>Refill incluido</strong> + 1 Dulzura rellena artesanal calientita.
         </p>
         <div class="combo-fillings">
           <span class="filling-chip">Rellenos:</span>
@@ -663,6 +668,7 @@
           <span class="filling-chip">Chocoavellana</span>
           <span class="filling-chip">Queso Zarzamora</span>
           <span class="filling-chip">Lechera</span>
+          <span class="filling-chip">Fresa</span>
         </div>
       </div>
     </section>
@@ -711,7 +717,7 @@
               Bolillo crujiente untado con frijoles refritos caseros y abundante queso gouda gratinado al horno. Acompañados con pico de gallo fresco.
             </p>
             <div style="margin-top: 8px; font-size: 11px; color: var(--gold-light);">
-              Tradicionales: <strong>$55</strong> | Con Jamón, Chorizo o Tocino: <strong>$70</strong>
+              Tradicionales: <strong>$55</strong> | Con Jamón, Chorizo, Tocino o Pollo: <strong>$70</strong>
             </div>
           </div>
         </article>
@@ -726,13 +732,13 @@
           <div class="dish-body">
             <div class="dish-title-row">
               <h4 class="dish-name">Chilaquiles de la Casa</h4>
-              <span class="dish-price">$65 - $80</span>
+              <span class="dish-price">$65 - $90</span>
             </div>
             <p class="dish-desc">
               Totopos crujientes de maíz bañados en salsa verde esmeralda o roja de chile de árbol, queso fresco de aro, crema ácida y rebanadas de aguacate.
             </p>
             <div style="margin-top: 8px; font-size: 11px; color: var(--gold-light);">
-              Sencillos con queso y crema: <strong>$65</strong> | Con Pollo deshebrado o Huevo: <strong>$80</strong>
+              Sencillos con queso y crema: <strong>$65</strong> | Con Pollo o Huevo: <strong>$80</strong> | Con Tiras de Bistec: <strong>$90</strong>
             </div>
           </div>
         </article>
@@ -747,7 +753,7 @@
           <div class="dish-body">
             <div class="dish-title-row">
               <h4 class="dish-name">Barquitas de Lechuga Fitness</h4>
-              <span class="dish-price">$70</span>
+              <span class="dish-price">$75</span>
             </div>
             <p class="dish-desc">
               Ensalada fresca y ligera en hojas de lechuga romana crujiente con pechuga de pollo asada en tiras, huevo cocido, abanico de aguacate, jitomates cherry y aderezo especial de la casa.
@@ -765,29 +771,34 @@
           <div class="dish-body">
             <div class="dish-title-row">
               <h4 class="dish-name">Enchiladas Suizas Gratinadas</h4>
-              <span class="dish-price">$75</span>
+              <span class="dish-price">$80</span>
             </div>
             <p class="dish-desc">
-              Orden de tres tortillas rellenas de pechuga de pollo deshebrada, bañadas en nuestra salsa verde suiza cremosa de tomatillo y gratinadas al horno con queso gouda.
+              Orden de 4 tortillas rellenas de pechuga de pollo deshebrada, bañadas en nuestra salsa verde suiza cremosa de tomatillo y gratinadas al horno con queso gouda.
             </p>
           </div>
         </article>
 
-        <!-- VIERNES: Enmoladas Tradicionales -->
+        <!-- VIERNES: Enmoladas Tradicionales / Burritos -->
         <article class="dish-card">
           <div class="dish-image-wrapper">
-            <img src="img/enmoladas.jpg" alt="Enmoladas Tradicionales" class="dish-img">
+            <img src="img/enmoladas.jpg" alt="Enmoladas Tradicionales y Burritos Norteños" class="dish-img">
             <span class="day-badge">Viernes</span>
-            <span class="tag-fresh">Receta Casera</span>
+            <span class="tag-fresh">Especial de Viernes</span>
           </div>
           <div class="dish-body">
             <div class="dish-title-row">
               <h4 class="dish-name">Enmoladas Tradicionales / Burritos</h4>
-              <span class="dish-price">$75</span>
+              <span class="dish-price">$80</span>
             </div>
-            <p class="dish-desc">
-              Tres enmoladas de pollo con mole casero tradicional poblano con toque de cacao, coronadas con queso fresco, crema y ajonjolí tostado / Opción de burritos norteños.
-            </p>
+            <div style="margin-top: 6px;">
+              <p class="dish-desc" style="margin-bottom: 8px;">
+                <strong>Enmoladas de Pollo ($80):</strong> Orden de 4 piezas rellenas de pechuga deshebrada con mole casero tradicional poblano con toque de cacao, queso fresco, crema y ajonjolí tostado.
+              </p>
+              <p class="dish-desc">
+                <strong>Burritos Norteños ($80):</strong> Tortilla gigante de harina con relleno a elegir (Carne al Pastor o Fajitas de Pollo), lechuga fresca, jitomate, cebolla, aderezo de la casa y papas en gajos al costado.
+              </p>
+            </div>
           </div>
         </article>
       </section>
@@ -810,23 +821,32 @@
             <div class="menu-item-row">
               <div class="menu-item-info">
                 <div class="menu-item-title">Pozole Casero Tradicional</div>
-                <div class="menu-item-desc">Plato hondo de maíz cacahuazintle con carne deshebrada, lechuga, rábanos, orégano y tostadas.</div>
+                <div class="menu-item-desc">Plato hondo de maíz cacahuazintle con carne deshebrada, lechuga, rábanos, orégano y tostadas doradas.</div>
               </div>
               <div class="menu-item-price">$85</div>
             </div>
             <div class="menu-item-row">
               <div class="menu-item-info">
-                <div class="menu-item-title">Cochinita Pibil al Horno</div>
-                <div class="menu-item-desc">Carne de cerdo marinada en achiote y naranja agria, con cebollita morada encurtida y habanero.</div>
+                <div class="menu-item-title">
+                  Cochinita Pibil al Horno
+                  <span style="background: rgba(217, 119, 6, 0.2); color: var(--gold-light); font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: normal; margin-left: 6px;">Orden de 4 Tacos</span>
+                </div>
+                <div class="menu-item-desc">
+                  Carne de cerdo marinada en achiote y naranja agria, con cebollita morada encurtida y habanero.<br>
+                  <em style="color: var(--gold-light); font-size: 11px;">★ Pregunta por kilo para llevar con todos los ingredientes.</em>
+                </div>
               </div>
               <div class="menu-item-price">$80</div>
             </div>
             <div class="menu-item-row">
               <div class="menu-item-info">
                 <div class="menu-item-title">Pancita de Res de la Casa</div>
-                <div class="menu-item-desc">Caldo reconfortante de pancita bien sazonada con chile guajillo, epazote, cebolla y orégano.</div>
+                <div class="menu-item-desc">
+                  Caldo reconfortante de pancita bien sazonada con chile guajillo, epazote, cebolla y orégano.<br>
+                  <span style="color: var(--gold-light); font-size: 11px;">Plato Grande: <strong>$90</strong> | 1 Litro para Llevar: <strong>$110</strong></span>
+                </div>
               </div>
-              <div class="menu-item-price">$90</div>
+              <div class="menu-item-price">$90 / $110</div>
             </div>
           </div>
         </article>
@@ -840,53 +860,79 @@
           <p class="section-subtitle">Granos selectos y bebidas preparadas al momento</p>
         </div>
 
+        <div style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.18), rgba(61, 35, 24, 0.45)); border: 1px solid rgba(217, 119, 6, 0.35); border-radius: 12px; padding: 10px 14px; margin-bottom: 16px; text-align: center;">
+          <span style="font-size: 11.5px; font-weight: 700; color: var(--gold-light); letter-spacing: 0.8px; text-transform: uppercase;">
+            ☕ Café 100% Original de La Parroquia de Veracruz
+          </span>
+        </div>
+
         <div class="menu-group">
-          <!-- Americano con Refill -->
+          <!-- Americano con Refill & Grande -->
           <div class="menu-item-row">
             <div class="menu-item-info">
               <div class="menu-item-title">
                 Café Americano de Altura
                 <span class="item-star">★ Popular</span>
               </div>
-              <div class="menu-item-desc">Taza caliente clásica. <em>Refill incluido en el Combo Dulzura por $50.</em></div>
+              <div class="menu-item-desc">
+                Taza clásica: <strong>$30</strong> <em>(Refill incluido en Combo Dulzura por $50)</em><br>
+                Tamaño grande para llevar: <strong>$48</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$30</div>
+            <div class="menu-item-price">$30 / $48</div>
           </div>
 
-          <!-- Café de Olla -->
-          <div class="menu-item-row">
-            <div class="menu-item-info">
-              <div class="menu-item-title">Café de Olla Tradicional</div>
-              <div class="menu-item-desc">Hervido a fuego lento con piloncillo de caña y canela en rama.</div>
-            </div>
-            <div class="menu-item-price">$30</div>
-          </div>
-
-          <!-- Capuchino -->
+          <!-- Capuchino Cremoso -->
           <div class="menu-item-row">
             <div class="menu-item-info">
               <div class="menu-item-title">Capuchino Cremoso</div>
-              <div class="menu-item-desc">Espresso con leche vaporizada, espuma densa y toque de canela o cacao.</div>
+              <div class="menu-item-desc">
+                Clásico: <strong>$48</strong> | Grande p/llevar: <strong>$52</strong><br>
+                Con Hershey's o Cajeta: <strong>$52</strong> | Vainilla o Moka: <strong>$55</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$45</div>
+            <div class="menu-item-price">$48 - $55</div>
           </div>
 
           <!-- Latte -->
           <div class="menu-item-row">
             <div class="menu-item-info">
-              <div class="menu-item-title">Café Latte Clásico</div>
-              <div class="menu-item-desc">Suave combinación de espresso y abundante leche entera o deslactosada.</div>
+              <div class="menu-item-title">Café Latte</div>
+              <div class="menu-item-desc">
+                Leche entera: <strong>$48</strong> | Leche deslactosada: <strong>$52</strong> | Latte Frío: <strong>$55</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$45</div>
+            <div class="menu-item-price">$48 - $55</div>
+          </div>
+
+          <!-- Chocolate Caliente o Frío -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Chocolate Especial</div>
+              <div class="menu-item-desc">Tradicional y espumoso, a elegir caliente o frío.</div>
+            </div>
+            <div class="menu-item-price">$52</div>
           </div>
 
           <!-- Espresso -->
           <div class="menu-item-row">
             <div class="menu-item-info">
-              <div class="menu-item-title">Espresso Sencillo / Doble</div>
-              <div class="menu-item-desc">Extracción pura, intensa y con crema dorada.</div>
+              <div class="menu-item-title">Espresso Puro</div>
+              <div class="menu-item-desc">Sencillo: <strong>$30</strong> | Doble extracción: <strong>$40</strong></div>
             </div>
-            <div class="menu-item-price">$25 / $35</div>
+            <div class="menu-item-price">$30 / $40</div>
+          </div>
+
+          <!-- Otras Bebidas: Té y Bebidas Frías -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Té & Bebidas Heladas</div>
+              <div class="menu-item-desc">
+                Té Caliente o Frío: <strong>$35</strong><br>
+                Café Helado: <strong>$40</strong> | Chocolate Helado: <strong>$40</strong>
+              </div>
+            </div>
+            <div class="menu-item-price">$35 - $40</div>
           </div>
 
           <!-- Frappés -->
@@ -896,27 +942,37 @@
                 Frappés Artesanales
                 <span class="item-star">★ Refrescante</span>
               </div>
-              <div class="menu-item-desc">Sabores: Moka, Caramelo, Vainilla francesa o Café tradicional con crema batida.</div>
+              <div class="menu-item-desc">
+                Moka: <strong>$62</strong> | Chocolate: <strong>$65</strong><br>
+                Hershey's, Cajeta o Nutella: <strong>$70</strong><br>
+                De Oreo: <strong>$75</strong> | Queso con Zarzamora: <strong>$75</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$50</div>
+            <div class="menu-item-price">$62 - $75</div>
           </div>
 
           <!-- Licuados -->
           <div class="menu-item-row">
             <div class="menu-item-info">
               <div class="menu-item-title">Licuados Naturales</div>
-              <div class="menu-item-desc">Preparados con fruta fresca: Plátano, Fresa o Chocomilk con leche entera/light.</div>
+              <div class="menu-item-desc">
+                Fruta fresca: Plátano, Fresa o Chocomilk.<br>
+                Con Leche Entera: <strong>$38</strong> | Con Leche Deslactosada: <strong>$40</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$35</div>
+            <div class="menu-item-price">$38 / $40</div>
           </div>
 
           <!-- Malteadas -->
           <div class="menu-item-row">
             <div class="menu-item-info">
               <div class="menu-item-title">Malteadas Cremosas</div>
-              <div class="menu-item-desc">Helado batido espeso. Sabores clásicos: Chocolate, Vainilla o Fresa.</div>
+              <div class="menu-item-desc">
+                Clásicas (Chocolate, Vainilla o Fresa): <strong>$60</strong><br>
+                Chocoavellana: <strong>$65</strong> | Cajeta: <strong>$65</strong> | Queso con Zarzamora: <strong>$68</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$45</div>
+            <div class="menu-item-price">$60 - $68</div>
           </div>
         </div>
       </section>
@@ -937,34 +993,41 @@
                 Baguette de la Casa
                 <span class="item-star">★ Recomendado</span>
               </div>
-              <div class="menu-item-desc">Pan baguette artesanal con jamón de pavo, queso gouda derretido, lechuga y aderezo especial.</div>
+              <div class="menu-item-desc">Pan baguette artesanal con jamón de pavo, queso gouda derretido, lechuga fresca y aderezo especial.</div>
             </div>
-            <div class="menu-item-price">$55</div>
+            <div class="menu-item-price">$65</div>
           </div>
 
           <!-- Sándwich -->
           <div class="menu-item-row">
             <div class="menu-item-info">
               <div class="menu-item-title">Sándwich Clásico Tostado</div>
-              <div class="menu-item-desc">Pan blanco o integral a la mantequilla con jamón, doble queso (gouda y amarillo) y jitomate.</div>
+              <div class="menu-item-desc">
+                Con Jamón y doble queso (gouda y amarillo): <strong>$48</strong><br>
+                Con Pechuga de Pollo y queso: <strong>$55</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$40</div>
+            <div class="menu-item-price">$48 / $55</div>
           </div>
 
           <!-- Huevito al gusto -->
           <div class="menu-item-row">
             <div class="menu-item-info">
-              <div class="menu-item-title">Huevito al Gusto</div>
-              <div class="menu-item-desc">Dos huevos preparados a la mexicana, con jamón o con salchicha. Servidos con frijolitos y totopos.</div>
+              <div class="menu-item-title">Huevitos al Gusto</div>
+              <div class="menu-item-desc">
+                A la Mexicana (con frijoles, totopos y aguacate): <strong>$50</strong><br>
+                Huevos Rancheros (estrellados sobre tortilla con jamón y salsa): <strong>$55</strong><br>
+                Con Jamón o Salchicha y queso fundido: <strong>$55</strong>
+              </div>
             </div>
-            <div class="menu-item-price">$55</div>
+            <div class="menu-item-price">$50 / $55</div>
           </div>
 
           <!-- Hot Cakes -->
           <div class="menu-item-row">
             <div class="menu-item-info">
               <div class="menu-item-title">Hot Cakes Esponjosos (3 pzas)</div>
-              <div class="menu-item-desc">Torre de 3 piezas calientitas con mantequilla, miel de maple y mermelada de fresa.</div>
+              <div class="menu-item-desc">Torre de 3 piezas calientitas con mantequilla pura, miel de maple y mermelada de fresa.</div>
             </div>
             <div class="menu-item-price">$50</div>
           </div>
@@ -973,9 +1036,9 @@
           <div class="menu-item-row">
             <div class="menu-item-info">
               <div class="menu-item-title">Crepas Dulces Caseras</div>
-              <div class="menu-item-desc">Relleno a elegir: Nutella con plátano, Cajeta o Queso crema con zarzamora.</div>
+              <div class="menu-item-desc">Relleno a elegir: Nutella con plátano, Cajeta suave o Queso crema con zarzamora.</div>
             </div>
-            <div class="menu-item-price">$45</div>
+            <div class="menu-item-price">$60</div>
           </div>
         </div>
       </section>
@@ -996,30 +1059,33 @@
                 Dulzuras Rellenas de la Casa
                 <span class="item-star">★ Especialidad</span>
               </div>
-              <div class="menu-item-desc">Pan dulce esponjoso relleno al gusto: Cajeta suave, Chocoavellana, Queso Zarzamora o Lechera.</div>
+              <div class="menu-item-desc">Pan dulce esponjoso horneado con relleno al gusto: Fresa, Nutella, Cajeta suave o Lechera.</div>
             </div>
-            <div class="menu-item-price">$25 c/u</div>
+            <div class="menu-item-price">$15 c/u</div>
           </div>
 
-          <!-- Panqué de chocolate -->
-          <div class="menu-item-row">
-            <div class="menu-item-info">
-              <div class="menu-item-title">Panqué de Chocolate Casero</div>
-              <div class="menu-item-desc">Rebanada de panqué húmedo de cacao con chispas de chocolate.</div>
-            </div>
-            <div class="menu-item-price">$25</div>
-          </div>
-
-          <!-- Galletas de mantequilla artesanales -->
+          <!-- Galletas de mantequilla artesanales paquete x4 -->
           <div class="menu-item-row" style="background: rgba(245, 158, 11, 0.05); margin: 6px -8px; padding: 10px 8px; border-radius: 8px; border: 1px dashed rgba(245, 158, 11, 0.3);">
             <div class="menu-item-info">
               <div class="menu-item-title" style="color: var(--gold-light);">
-                Galletas de Mantequilla Artesanales
+                Galletas de Mantequilla Artesanales (Paquete de 4 pzas)
                 <span class="item-star">★ Receta Europea</span>
               </div>
-              <div class="menu-item-desc">Elaboradas 100% con mantequilla pura por nuestra repostería aliada. Embolsadas individualmente para máxima higiene y frescura.</div>
+              <div class="menu-item-desc">Elaboradas 100% con mantequilla pura artesanal por nuestra repostería aliada. Paquete cerrado de 4 piezas para acompañar tu café o compartir.</div>
             </div>
-            <div class="menu-item-price">$20 c/u</div>
+            <div class="menu-item-price">$30 pqt</div>
+          </div>
+
+          <!-- Pan Dulce para Café -->
+          <div class="menu-item-row">
+            <div class="menu-item-info">
+              <div class="menu-item-title">Pan Dulce Tradicional</div>
+              <div class="menu-item-desc">
+                Pan Dulce para Café (1 pieza): <strong>$15</strong><br>
+                Pan Dulce Especial: <strong>$18</strong>
+              </div>
+            </div>
+            <div class="menu-item-price">$15 / $18</div>
           </div>
         </div>
       </section>
@@ -1039,15 +1105,15 @@
               <div class="coworking-title">Pase Café & Trabajo</div>
             </div>
             <div class="combo-price-box">
-              <div class="main-price">$60</div>
-              <div class="currency-tag">2 Horas</div>
+              <div class="main-price">$40</div>
+              <div class="currency-tag">Por Hora</div>
             </div>
           </div>
           <p style="font-size: 12px; color: #ddd5cc; line-height: 1.4;">
             Disfruta de la tranquilidad de nuestra planta alta con todo lo que necesitas para tu jornada:
           </p>
           <ul class="coworking-features">
-            <li><span>✓</span> Café Americano con Refill durante tu estancia (2 horas).</li>
+            <li><span>✓</span> Café Americano con Refill durante tu estancia: $30.00.</li>
             <li><span>✓</span> Conexión eléctrica garantizada junto a tu mesa.</li>
             <li><span>✓</span> Red Wi-Fi de alta velocidad para videollamadas o estudio.</li>
             <li><span>✓</span> Ambiente libre de ruido y distracciones.</li>
